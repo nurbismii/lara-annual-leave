@@ -59,13 +59,10 @@ class HomeController extends Controller
             'tanggal_berakhir' => $request->tgl_akhir_cuti,
             'status_pemohon' => 'ya',
             'status_hrd' => 'Menunggu',
-            'status_hod' => 'Menunggu',
+            'status_hod' => 'Diterima',
             'status_penanggung_jawab' => 'Menunggu',
             'tipe' => 'cuti',
-        ]);
-
-        DB::connection('hris')->table('employees')->where('nik', $request->nik)->update([
-            $cutiField => $request->$cutiField - $jumlahHari
+            'kategori_cuti' => $request->kategori_cuti
         ]);
 
         return back()->with('success', 'Berhasil melakukan pengajuan');
