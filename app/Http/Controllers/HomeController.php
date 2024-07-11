@@ -28,7 +28,11 @@ class HomeController extends Controller
     {
         $users = User::all();
 
-        return view('home', compact('users'));
+        $annual_leaves = DB::connection('hris')->table('cuti_izin')
+            ->join('employees', 'employees.nik', '=', 'cuti_izin.nik_karyawan')
+            ->select('cuti_izin.*', 'employees.nama_karyawan')->get();
+
+        return view('home', compact('users', 'annual_leaves'));
     }
 
     public function store(Request $request)

@@ -38,7 +38,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5">Human Resources</h1>
+            <h1 class="text-white pt-3 mt-n5">Selamat Datang!</h1>
             <p class="lead text-white mt-3">Sistem penginputan cuti tahunan <br /> created by HR </p>
           </div>
         </div>
@@ -115,7 +115,7 @@
       'hideEasing': 'linear',
       'showMethod': 'fadeIn',
       'hideMethod': 'fadeOut',
-      'positionClass': 'toast-bottom-right'
+      'positionClass': 'toast-bottom-left'
     }
     toastr.success("{{ session('success') }}");
     @endif
@@ -133,7 +133,7 @@
       'hideEasing': 'linear',
       'showMethod': 'fadeIn',
       'hideMethod': 'fadeOut',
-      'positionClass': 'toast-bottom-right'
+      'positionClass': 'toast-bottom-left'
     }
     toastr.error("{{ session('error') }}");
     @endif
@@ -151,7 +151,7 @@
       'hideEasing': 'linear',
       'showMethod': 'fadeIn',
       'hideMethod': 'fadeOut',
-      'positionClass': 'toast-bottom-right'
+      'positionClass': 'toast-bottom-left'
     }
     toastr.info("{{ session('info') }}");
     @endif
@@ -169,7 +169,7 @@
       'hideEasing': 'linear',
       'showMethod': 'fadeIn',
       'hideMethod': 'fadeOut',
-      'positionClass': 'toast-bottom-right'
+      'positionClass': 'toast-bottom-left'
     }
     toastr.warning("{{ session('warning') }}");
     @endif

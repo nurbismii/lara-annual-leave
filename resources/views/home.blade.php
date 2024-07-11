@@ -97,7 +97,7 @@
                         <div class="row">
                            <div class="col-md-6 mb-3">
                               <div class="form-check">
-                                 <input class="form-check-input" type="radio" name="kategori_cuti" value="1" id="kategori_cuti_tahunan">
+                                 <input class="form-check-input" type="radio" name="kategori_cuti" value="1" id="kategori_cuti_tahunan" required>
                                  <label class="form-check-label">
                                     Cuti Tahunan
                                  </label>
@@ -105,7 +105,7 @@
                            </div>
                            <div class="col-md-6 mb-3">
                               <div class="form-check">
-                                 <input class="form-check-input" type="radio" name="kategori_cuti" value="2" id="kategori_cuti_covid">
+                                 <input class="form-check-input" type="radio" name="kategori_cuti" value="2" id="kategori_cuti_covid" required>
                                  <label class="form-check-label">
                                     Cuti Covid
                                  </label>
@@ -141,6 +141,85 @@
                <h2 class="text-dark mb-0">Bagian Manajemen Aplikasi</h2>
                <h2 class="text-primary text-gradient">Kombinasi tak terbatas</h2>
                <p class="lead">Opsi untuk Kamu kumpulkan dan sesuaikan. </p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container mt-sm-5 mt-3">
+      <div class="row">
+         <div class="col-lg-3">
+            <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
+               <h3>Status Pengajuan</h3>
+               <h6 class="text-secondary font-weight-normal pe-3">Kamu dapat melihat status cuti tahunan telah diketahui oleh departemen HR disini.</h6>
+            </div>
+         </div>
+         <div class="col-lg-9">
+            <div class="row mt-3">
+               <!-- Buttons color -->
+               <div class="col-12">
+                  <div class="position-relative border-radius-xl overflow-hidden shadow-lg mb-7">
+                     <div class="container border-bottom">
+                        <div class="row justify-space-between py-2">
+                           <div class="col-lg-3 me-auto">
+                              <p class="lead text-dark pt-1 mb-3">Tabel Riwayat</p>
+                           </div>
+                           <div class="table-responsive">
+                              <table class="table align-middle dataTable mb-3">
+                                 <thead>
+                                    <tr>
+                                       <th>NIK</th>
+                                       <th>Nama</th>
+                                       <th>Mulai</th>
+                                       <th>Selesai</th>
+                                       <th>Cuti</th>
+                                       <th>Status HR</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach($annual_leaves as $annual)
+                                    <tr>
+                                       <td>
+                                          <span class="badge bg-gradient-light text-dark">{{ $annual->nik_karyawan }}</span>
+                                       </td>
+                                       <td>
+                                          <span class="badge bg-gradient-light text-dark">{{ $annual->nama_karyawan }}</span>
+                                       </td>
+                                       <td>
+                                          <span class="badge bg-gradient-light text-dark">{{ date('d F Y', strtotime($annual->tanggal_mulai)) }}</span>
+                                       </td>
+                                       <td>
+                                          <span class="badge bg-gradient-light text-dark">{{ date('d F Y', strtotime($annual->tanggal_berakhir)) }}</span>
+                                       </td>
+                                       <td>
+                                          <span class="badge bg-gradient-dark">{{ $annual->jumlah }} Hari</span>
+                                       </td>
+                                       <td>
+                                          @if($annual->status_hrd == 'Diterima')
+                                          <span class="badge bg-gradient-success">{{ $annual->status_hrd }}</span>
+                                          @elseif($annual->status_hrd == 'Menunggu')
+                                          <span class="badge bg-gradient-warning">{{ $annual->status_hrd }}</span>
+                                          @else
+                                          <span class="badge bg-gradient-danger">{{ $annual->status_hrd }}</span>
+                                          @endif
+                                       </td>
+                                    </tr>
+                                    @endforeach
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tab-content tab-space">
+                        <div class="tab-pane active" id="preview-btn-color">
+                        </div>
+                        <div class="tab-pane" id="code-btn-color">
+                           <div class="position-relative p-4 pb-2">
+                              <a class="btn btn-sm bg-gradient-dark position-absolute end-4 mt-3" onclick="copyCode(this);" type="button"><i class="fas fa-copy text-sm me-1"></i> Copy</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -413,7 +492,7 @@
          jumlahHariCuti.value = differenceInDays;
 
          if ((kategoriCutiTahunan && differenceInDays > sisaCuti) ||
-            (kategoriCutiCovid && differenceInDays > sisaCutiCovid)) {
+            (kategoriCutiCovid && differenceInDays > sisaCutiCovid) || (differenceInDays <= 0)) {
             submitButton.disabled = true;
             submitButton.textContent = "Tidak Memenuhi Syarat";
          } else {
