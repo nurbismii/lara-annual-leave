@@ -224,6 +224,7 @@
          </div>
       </div>
    </div>
+   @if(Auth::user()->access == 1)
    <div class="container mt-sm-5 mt-3">
       <div class="row">
          <div class="col-lg-3">
@@ -283,6 +284,7 @@
          </div>
       </div>
    </div>
+   @endif
 </section>
 
 <!-- Edit user account modal -->

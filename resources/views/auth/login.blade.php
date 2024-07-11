@@ -37,10 +37,10 @@
                                 <form action="{{ route('login') }}" role="form" method="post">
                                     @csrf
                                     <div class="mb-3">
-                                        <input type="email" name="email" class="form-control form-control-sm" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="password" name="password" class="form-control form-control-sm" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Masuk</button>

@@ -18,6 +18,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'access' => 2
         ]);
 
         return back()->with('Yeah!, Berhasil melakukan penambahan pengguna baru.');
@@ -34,7 +35,7 @@ class UserController extends Controller
             User::where('id', $id)->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password
+                'password' => bcrypt($request->password)
             ]);
 
             return back()->with('success', 'Yeah!, Berhasil melakukan perubahan data pengguna.');

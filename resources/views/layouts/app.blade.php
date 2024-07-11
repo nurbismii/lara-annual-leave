@@ -34,12 +34,12 @@
     </div>
   </div>
   <header class="header-2">
-    <div class="page-header min-vh-75" style="background-image: url('./assets/img/curved-images/curved.jpg')">
+    <div class="page-header min-vh-75" style="background-image: url('assets/img/curved-images/bg-hero1.png')">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5">Selamat Datang!</h1>
-            <p class="lead text-white mt-3">Sistem penginputan cuti tahunan <br /> created by HR </p>
+            <h1 class="pt-3 mt-n5 text-dark">Selamat Datang!</h1>
+            <p class="lead mt-3 text-dark">Sistem penginputan cuti tahunan <br /> created by HR </p>
           </div>
         </div>
       </div>
@@ -51,9 +51,9 @@
           <g class="moving-waves">
             <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
             <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
-            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
-            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.36)" />
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.38)" />
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.45)" />
             <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
           </g>
         </svg>
