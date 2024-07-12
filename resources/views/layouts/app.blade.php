@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
             <h1 class="pt-3 mt-n5 text-dark">Selamat Datang!</h1>
-            <p class="lead mt-3 text-dark">Sistem penginputan cuti tahunan <br /> created by HR </p>
+            <p class="lead mt-3 text-dark">Sistem Cuti Tahunan <br /> created by HR </p>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
             <p class="my-4 text-sm">
               All rights reserved. Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> Sistem Penginputan Cuti Tahunan <a href="https://www.creative-tim.com" target="_blank">Creative HR</a>.
+              </script> Sistem Cuti Tahunan <a href="https://vdni.top" target="_blank">Creative HR</a>.
             </p>
           </div>
         </div>
@@ -89,7 +89,7 @@
   <script src="{{ asset('assets/js/plugins/countup.min.js')}}"></script>
   <script src="{{ asset('assets/js/plugins/choices.min.js')}}"></script>
   <script src="{{ asset('assets/js/plugins/prism.min.js')}}"></script>
-  <script src="{{ asset('assets/js/plugins/highlight.min.js')}}"></script>
+  <!-- <script src="{{ asset('assets/js/plugins/highlight.min.js')}}"></script> -->
   <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
   <script src="{{ asset('assets/js/plugins/rellax.min.js')}}"></script>
   <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->

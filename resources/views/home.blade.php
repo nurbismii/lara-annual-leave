@@ -140,7 +140,9 @@
             <div class="col-lg-6">
                <h2 class="text-dark mb-0">Bagian Manajemen Aplikasi</h2>
                <h2 class="text-primary text-gradient">Kombinasi tak terbatas</h2>
-               <p class="lead">Opsi untuk Kamu kumpulkan dan sesuaikan. </p>
+               <p class="lead">
+                  
+               </p>
             </div>
          </div>
       </div>

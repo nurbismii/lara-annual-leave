@@ -56,7 +56,7 @@
                                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{ asset('assets/img/illustrations/sign-up.png') }}">
                             </div>
                             <h4 class="mt-5 text-white font-weight-bolder">"Sistem Cuti Tahunan"</h4>
-                            <p class="text-white">Untuk mengurangi kesalahan pada pemberian izin cuti tahunan karyawan</p>
+                            <p class="text-white">Untuk melakukan pencatatan pada karyawan cuti.</p>
                         </div>
                     </div>
                 </div>
