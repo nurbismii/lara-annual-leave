@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store.cuti');
 Route::resource('user', '\App\Http\Controllers\UserController');
 Route::group(['prefix' => 'api/'], function () {
