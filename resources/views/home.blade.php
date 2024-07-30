@@ -98,7 +98,7 @@
                            <div class="col-md-6 mb-3">
                               <div class="form-check">
                                  <input class="form-check-input" type="radio" name="kategori_cuti" value="1" id="kategori_cuti_tahunan" required>
-                                 <label class="form-check-label">
+                                 <label class="form-check-label" for="kategori_cuti_tahunan">
                                     Cuti Tahunan
                                  </label>
                               </div>
@@ -106,7 +106,7 @@
                            <div class="col-md-6 mb-3">
                               <div class="form-check">
                                  <input class="form-check-input" type="radio" name="kategori_cuti" value="2" id="kategori_cuti_covid" required>
-                                 <label class="form-check-label">
+                                 <label class="form-check-label" for="kategori_cuti_covid">
                                     Cuti Covid
                                  </label>
                               </div>
@@ -141,7 +141,7 @@
                <h2 class="text-dark mb-0">Bagian Manajemen Aplikasi</h2>
                <h2 class="text-primary text-gradient">Kombinasi tak terbatas</h2>
                <p class="lead">
-                  
+
                </p>
             </div>
          </div>
