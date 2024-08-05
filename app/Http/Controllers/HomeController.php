@@ -56,7 +56,7 @@ class HomeController extends Controller
 
         $check_exist = DB::connection('hris')->table('cuti_izin')
             ->where('nik_karyawan', $request->nik)
-            ->whereDate('tanggal_pengajuan', $request->tanggal_pengajuan)->first();
+            ->whereDate('tanggal', $request->tanggal_pengajuan)->first();
 
         if ($check_exist) {
             return back()->with('error', 'Opps, data pengajuan telah tersedia');
