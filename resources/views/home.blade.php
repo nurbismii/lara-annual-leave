@@ -18,10 +18,16 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 @endpush
 
-<section>
+<section id="cuti-tahunan" class="mb-3">
    <div class="container py-4">
       <div class="row">
-         <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+         <div class="col-lg-3">
+            <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
+               <h3>Formulir Cuti Tahunan</h3>
+               <h6 class="text-secondary font-weight-normal pe-3">Formulir untuk kamu melakukan pengajuan cuti tahunan</h6>
+            </div>
+         </div>
+         <div class="col-lg-9 mx-auto d-flex justify-content-center flex-column">
             <div class="card d-flex justify-content-center p-4 shadow-lg">
                <div class="text-center">
                   <h3 class="text-gradient text-primary">Formulir Cuti Tahunan</h3>
@@ -32,11 +38,11 @@
                      <div class="card-body pb-2">
                         <div class="form-group mb-3 mt-md-0 mt-4">
                            <label>Pilih karyawan :</label>
-                           <select name="" class="form-select search" id="employee_id"></select>
+                           <select name="" class="form-select search employee_id" id="employee_id"></select>
                         </div>
                         <div class="form-group mb-3 mt-md-0 mt-4">
                            <label>Nama</label>
-                           <input class="form-control" id="nama_karyawan" readonly></input>
+                           <input class="form-control nama_karyawan" id="nama_karyawan" readonly></input>
                         </div>
                         <div class="row">
                            <div class="col-md-6">
@@ -56,13 +62,13 @@
                            <div class="col-md-6">
                               <label>Departemen</label>
                               <div class="input-group mb-3">
-                                 <input class="form-control" type="text" id="departemen" readonly>
+                                 <input class="form-control departemen" type="text" id="departemen" readonly>
                               </div>
                            </div>
                            <div class="col-md-6 ps-md-2 mb-3">
                               <label>Divisi</label>
                               <div class="input-group">
-                                 <input type="text" class="form-control" id="divisi" readonly>
+                                 <input type="text" class="form-control divisi" id="divisi" readonly>
                               </div>
                            </div>
                         </div>
@@ -70,13 +76,13 @@
                            <div class="col-md-6">
                               <label>Cuti Tahunan</label>
                               <div class="input-group mb-3">
-                                 <input class="form-control" name="sisa_cuti" type="text" id="sisa_cuti" readonly>
+                                 <input class="form-control sisa_cuti" name="sisa_cuti" type="text" id="sisa_cuti" readonly>
                               </div>
                            </div>
                            <div class="col-md-6 ps-md-2 mb-3">
                               <label>Cuti Covid</label>
                               <div class="input-group">
-                                 <input type="text" name="sisa_cuti_covid" class="form-control" id="sisa_cuti_covid" readonly>
+                                 <input type="text" name="sisa_cuti_covid" class="form-control sisa_cuti_covid" id="sisa_cuti_covid" readonly>
                               </div>
                            </div>
                         </div>
@@ -133,6 +139,224 @@
       </div>
    </div>
 </section>
+<section id="paid-leave" class="mt-5 mb-3">
+   <div class="container py-4">
+      <div class="row">
+         <div class="col-lg-3">
+            <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
+               <h3>Formulir Paid Leave</h3>
+               <h6 class="text-secondary font-weight-normal pe-3">Formulir untuk kamu melakukan pengajuan paid leave</h6>
+            </div>
+         </div>
+         <div class="col-lg-9 mx-auto d-flex justify-content-center flex-column">
+            <div class="card d-flex justify-content-center p-4 shadow-lg">
+               <div class="text-center">
+                  <h3 class="text-gradient text-primary">Formulir Paid Leave</h3>
+               </div>
+               <div class="card card-plain">
+                  <form role="form" action="{{ route('store.paidleave') }}" method="post" enctype="multipart/form-data">
+                     @csrf
+                     <div class="card-body pb-2">
+                        <div class="form-group mb-3 mt-md-0 mt-4">
+                           <label>Pilih karyawan :</label>
+                           <select name="" class="form-select search employee_id" id="employee_id"></select>
+                        </div>
+                        <div class="form-group mb-3 mt-md-0 mt-4">
+                           <label>Nama</label>
+                           <input class="form-control nama_karyawan" readonly></input>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>NIK</label>
+                              <div class="input-group mb-3">
+                                 <input name="nik" type="number" class="form-control nik_karyawan" readonly>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Tanggal pengajuan</label>
+                              <div class="input-group">
+                                 <input name="tanggal_pengajuan" type="date" class="form-control" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>Departemen</label>
+                              <div class="input-group mb-3">
+                                 <input class="form-control departemen" type="text" readonly>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Divisi</label>
+                              <div class="input-group">
+                                 <input type="text" class="form-control divisi" readonly>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="izin_menikah">
+                              <label class="form-check-label" for="izin_menikah">
+                                 Izin Menikah ( 3 Hari )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="izin_menikahkan_anak">
+                              <label class="form-check-label" for="izin_menikahkan_anak">
+                                 Izin menikahkan anak ( 2 Hari )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="izin_khitan">
+                              <label class="form-check-label" for="izin_khitan">
+                                 Izin Khitan / Baptis anak ( 2 Hari )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="izin_istri_melahirkan">
+                              <label class="form-check-label" for="izin_istri_melahirkan">
+                                 Izin istri melahirkan / Keguguran ( 2 Hari )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="izin_duka">
+                              <label class="form-check-label" for="izin_duka">
+                                 Izin Duka keluarga* ( Suami/istri,orang tua/mertua,anak/menantu,saudara kandung ) meninggal ( 2 Hari )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="tipe_izin" id="cuti_melahirkan">
+                              <label class="form-check-label" for="cuti_melahirkan">
+                                 Cuti melahirkan ( 3 Bulan )
+                              </label>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>Mulai izin</label>
+                              <div class="input-group mb-3">
+                                 <input class="form-control" name="tgl_mulai_izin" id="tgl_mulai_izin" type="date" required>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Selesai izin</label>
+                              <div class="input-group">
+                                 <input class="form-control" name="tgl_akhir_izin" id="tgl_akhir_izin" type="date" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <label for="berkas_pendukung">Berkas pendukung</label>
+                           <input type="file" class="form-control" name="foto" id="berkas_pendukung" required>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12 text-center">
+                              <button type="submit" class="btn bg-gradient-primary mt-3 mb-0" id="submit_button">Kirim</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section id="unpaid-leave" class="mt-5 mb-3">
+   <div class="container py-4">
+      <div class="row">
+         <div class="col-lg-3">
+            <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
+               <h3>Formulir Unpaid Leave</h3>
+               <h6 class="text-secondary font-weight-normal pe-3">Formulir untuk kamu melakukan pengajuan unpaid leave</h6>
+            </div>
+         </div>
+         <div class="col-lg-9 mx-auto d-flex justify-content-center flex-column">
+            <div class="card d-flex justify-content-center p-4 shadow-lg">
+               <div class="text-center">
+                  <h3 class="text-gradient text-primary">Formulir Unpaid Leave</h3>
+               </div>
+               <div class="card card-plain">
+                  <form role="form" action="{{ route('store.unpaidleave') }}" method="post">
+                     @csrf
+                     <div class="card-body pb-2">
+                        <div class="form-group mb-3 mt-md-0 mt-4">
+                           <label>Pilih karyawan :</label>
+                           <select name="" class="form-select search employee_id" id="employee_id"></select>
+                        </div>
+                        <div class="form-group mb-3 mt-md-0 mt-4">
+                           <label>Nama</label>
+                           <input class="form-control nama_karyawan" readonly></input>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>NIK</label>
+                              <div class="input-group mb-3">
+                                 <input name="nik" type="number" class="form-control nik_karyawan" readonly>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Tanggal pengajuan</label>
+                              <div class="input-group">
+                                 <input name="tanggal_pengajuan" type="date" class="form-control" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>Departemen</label>
+                              <div class="input-group mb-3">
+                                 <input class="form-control departemen" type="text" readonly>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Divisi</label>
+                              <div class="input-group">
+                                 <input type="text" class="form-control divisi" readonly>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                           <label for="alasan_izin">Alasan Izin</label>
+                           <textarea class="form-control" type="text" name="alasan_izin" id="alasan_izin" rows="5"></textarea>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label>Mulai izin</label>
+                              <div class="input-group mb-3">
+                                 <input class="form-control" name="tgl_mulai_izin" id="tgl_mulai_izin" type="date" required>
+                              </div>
+                           </div>
+                           <div class="col-md-6 ps-md-2 mb-3">
+                              <label>Selesai izin</label>
+                              <div class="input-group">
+                                 <input class="form-control" name="tgl_akhir_izin" id="tgl_akhir_izin" type="date" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12 text-center">
+                              <button type="submit" class="btn bg-gradient-primary mt-3 mb-0" id="submit_button">Kirim</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
 <section class="my-5 py-5">
    <div class="container">
       <div class="row">
@@ -173,7 +397,8 @@
                                        <th>Nama</th>
                                        <th>Mulai</th>
                                        <th>Selesai</th>
-                                       <th>Cuti</th>
+                                       <th>Jumlah</th>
+                                       <th>Tipe</th>
                                        <th>Status HR</th>
                                     </tr>
                                  </thead>
@@ -194,6 +419,15 @@
                                        </td>
                                        <td>
                                           <span class="badge bg-gradient-dark">{{ $annual->jumlah }} Hari</span>
+                                       </td>
+                                       <td>
+                                          @if($annual->tipe == 'cuti')
+                                          <span class="badge bg-gradient-primary">{{ $annual->tipe }}</span>
+                                          @elseif($annual->tipe == 'izin dibayarkan')
+                                          <span class="badge bg-gradient-success">{{ $annual->tipe }}</span>
+                                          @else
+                                          <span class="badge bg-gradient-info">{{ $annual->tipe }}</span>
+                                          @endif
                                        </td>
                                        <td>
                                           @if($annual->status_hrd == 'Diterima')
@@ -544,7 +778,7 @@
       }
    });
 
-   $('#employee_id').on('change', function() {
+   $('.employee_id').on('change', function() {
       var id = $(this).val();
       if (id) {
          $.ajax({
@@ -557,13 +791,13 @@
             success: function(data) {
                if (data) {
                   $('.nik_karyawan').val(data.nik);
-                  $('#nama_karyawan').val(data.nama_karyawan);
-                  $('#departemen').val(data.departemen);
-                  $('#divisi').val(data.nama_divisi);
-                  $('#posisi').val(data.posisi);
-                  $('#jabatan').val(data.jabatan);
-                  $('#sisa_cuti').val(data.sisa_cuti);
-                  $('#sisa_cuti_covid').val(data.sisa_cuti_covid);
+                  $('.nama_karyawan').val(data.nama_karyawan);
+                  $('.departemen').val(data.departemen);
+                  $('.divisi').val(data.nama_divisi);
+                  $('.posisi').val(data.posisi);
+                  $('.jabatan').val(data.jabatan);
+                  $('.sisa_cuti').val(data.sisa_cuti);
+                  $('.sisa_cuti_covid').val(data.sisa_cuti_covid);
                }
             }
          });

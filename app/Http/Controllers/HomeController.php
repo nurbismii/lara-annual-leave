@@ -79,4 +79,53 @@ class HomeController extends Controller
 
         return back()->with('success', 'Berhasil melakukan pengajuan');
     }
+
+    public function storePaidLeave(Request $request)
+    {
+        $awal = new DateTime($request->tgl_mulai_izin);
+        $akhir = new DateTime($request->tgl_akhir_izin);
+
+        if ($request->hasFile('foto')) {
+            $upload = $request->file('foto');
+            $file_name = $request->nik . '-' . $upload->getClientOriginalName();
+            $path = public_path('/izin-dibayarkan/' . $request->nik . '/');
+            $upload->move($path, $file_name);
+
+            DB::connection('hris')->table('cuti_izin')->insert([
+                'nik_karyawan' => $request->nik,
+                'tanggal' => $request->tanggal_pengajuan,
+                'keterangan' => $request->tipe_izin,
+                'jumlah' => $akhir->diff($awal)->days == '0' ? '1' : $akhir->diff($awal)->days + 1,
+                'tanggal_mulai' => $request->tgl_mulai_izin,
+                'tanggal_berakhir' => $request->tgl_akhir_izin,
+                'status_pemohon' => 'ya',
+                'status_hrd' => 'Menunggu',
+                'status_hod' => 'Diterima',
+                'tipe' => 'izin dibayarkan',
+                'foto' => $file_name
+            ]);
+            return back()->with('success', 'Berhasil melakukan pengajuan paid leave');
+        }
+    }
+
+    public function storeUnpaidLeave(Request $request)
+    {
+        $awal = new DateTime($request->tgl_mulai_izin);
+        $akhir = new DateTime($request->tgl_akhir_izin);
+
+        DB::connection('hris')->table('cuti_izin')->insert([
+            'nik_karyawan' => $request->nik,
+            'tanggal' => $request->tanggal_pengajuan,
+            'keterangan' => $request->tipe_izin,
+            'jumlah' => $akhir->diff($awal)->days == '0' ? '1' : $akhir->diff($awal)->days + 1,
+            'tanggal_mulai' => $request->tgl_mulai_izin,
+            'tanggal_berakhir' => $request->tgl_akhir_izin,
+            'status_pemohon' => 'ya',
+            'status_hrd' => 'Menunggu',
+            'status_hod' => 'Diterima',
+            'tipe' => 'izin tidak dibayarkan',
+        ]);
+        
+        return back()->with('success', 'Berhasil melakukan pengajuan unpaid leave');
+    }
 }

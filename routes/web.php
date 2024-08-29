@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store.cuti');
+Route::post('/store/paidleave', [App\Http\Controllers\HomeController::class, 'storePaidLeave'])->name('store.paidleave');
+Route::post('/store/unpaidleave', [App\Http\Controllers\HomeController::class, 'storeUnpaidLeave'])->name('store.unpaidleave');
 Route::resource('user', '\App\Http\Controllers\UserController');
 Route::group(['prefix' => 'api/'], function () {
     route::get('employee', [App\Http\Controllers\ApiController::class, 'searchEmployee']);
