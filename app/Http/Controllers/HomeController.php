@@ -85,6 +85,14 @@ class HomeController extends Controller
         $awal = new DateTime($request->tgl_mulai_izin);
         $akhir = new DateTime($request->tgl_akhir_izin);
 
+        $check_exist = DB::connection('hris')->table('cuti_izin')
+            ->where('nik_karyawan', $request->nik)
+            ->whereDate('tanggal', $request->tanggal_pengajuan)->first();
+
+        if ($check_exist) {
+            return back()->with('error', 'Opps, data pengajuan telah tersedia');
+        }
+
         if ($request->hasFile('foto')) {
             $upload = $request->file('foto');
             $file_name = $request->nik . '-' . $upload->getClientOriginalName();
@@ -113,6 +121,14 @@ class HomeController extends Controller
         $awal = new DateTime($request->tgl_mulai_izin);
         $akhir = new DateTime($request->tgl_akhir_izin);
 
+        $check_exist = DB::connection('hris')->table('cuti_izin')
+            ->where('nik_karyawan', $request->nik)
+            ->whereDate('tanggal', $request->tanggal_pengajuan)->first();
+
+        if ($check_exist) {
+            return back()->with('error', 'Opps, data pengajuan telah tersedia');
+        }
+
         DB::connection('hris')->table('cuti_izin')->insert([
             'nik_karyawan' => $request->nik,
             'tanggal' => $request->tanggal_pengajuan,
@@ -125,7 +141,7 @@ class HomeController extends Controller
             'status_hod' => 'Diterima',
             'tipe' => 'izin tidak dibayarkan',
         ]);
-        
+
         return back()->with('success', 'Berhasil melakukan pengajuan unpaid leave');
     }
 }
